@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const img = new Image();
-    img.src = '/adv.webp';
+    img.src = '/img.png';
     img.onload = () => {
       setTimeout(() => {
         setBgLoaded(true);
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className={`App ${bgLoaded ? '' : 'hidden'}`}>
       <header className="App-header">
-      <div className="flex items-start justify-center bg-cover bg-center" style={{ backgroundImage: "url('/bg.png')" }}>
+      <div className="flex items-start justify-center bg-black bg-cover bg-center" style={{ backgroundImage: "url('/bg.png')" }}>
           {!bgLoaded && (
             <div className="loader">Loading...</div>
           )}
