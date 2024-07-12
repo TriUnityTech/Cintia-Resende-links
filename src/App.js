@@ -5,21 +5,26 @@ import { motion } from 'framer-motion';
 
 function App() {
   const [bgLoaded, setBgLoaded] = useState(false);
+  const isMobile = window.innerWidth <= 640; 
 
   useEffect(() => {
-    const img = new Image();
-    img.src = '/img.png';
-    img.onload = () => {
-      setTimeout(() => {
-        setBgLoaded(true);
-      }, 1000); 
-    };
-  }, []);
+    if (!isMobile) {
+      const img = new Image();
+      img.src = '/bg.png';
+      img.onload = () => {
+        setTimeout(() => {
+          setBgLoaded(true);
+        }, 1000); 
+      };
+    } else {
+      setBgLoaded(true); 
+    }
+  }, [isMobile]);
 
   return (
     <div className={`App ${bgLoaded ? '' : 'hidden'}`}>
       <header className="App-header">
-      <div className="flex items-start justify-center bg-black bg-cover bg-center" style={{ backgroundImage: "url('/bg.png')" }}>
+        <div className="flex items-start justify-center bg-black bg-cover bg-center" style={{ backgroundImage: isMobile ? '' : "url('/bg.png')" }}>
           {!bgLoaded && (
             <div className="loader">Loading...</div>
           )}
