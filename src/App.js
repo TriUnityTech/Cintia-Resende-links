@@ -31,7 +31,7 @@ function App() {
           {bgLoaded && (
             <div className='flex z-0 justify-center items-center flex-col'> 
               <motion.img 
-                src='/img.avif'
+                src='/img.png'
                 alt="Adv" 
                 className='lg:w-2/6 w-full ' 
                 initial={{ opacity: 0 }}
