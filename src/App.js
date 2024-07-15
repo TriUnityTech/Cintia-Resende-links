@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import './App.css';
 import BtnLinks from './components/BtnLinks';
 import { motion } from 'framer-motion';
 
 function App() {
-  const [bgLoaded, setBgLoaded] = useState(false);
-  const isMobile = window.innerWidth <= 640; 
 
-  useEffect(() => {
-    if (!isMobile) {
-      const img = new Image();
-      img.src = '/bg.png';
-      img.onload = () => {
-        setTimeout(() => {
-          setBgLoaded(true);
-        }, 1000); 
-      };
-    } else {
-      setBgLoaded(true); 
-    }
-  }, [isMobile]);
+
 
   return (
-    <div className={`App ${bgLoaded ? '' : 'hidden'}`}>
+    <div>
       <header className="App-header">
         <div className="flex items-start justify-center bg-black bg-cover bg-center">
-          {!bgLoaded && (
-            <div className="loader">Loading...</div>
-          )}
-          {bgLoaded && (
             <div className='flex z-0 justify-center items-center flex-col'> 
               <motion.img 
-                src='/img.png'
+                src='/img.avif'
                 alt="Adv" 
                 className='lg:w-2/6 w-full ' 
                 initial={{ opacity: 0 }}
@@ -118,7 +99,6 @@ function App() {
                 <p className='text-white text-xs'>Todos os direitos Reservados por Cintia Resende ©</p>
               </div>
             </div>
-          )}
         </div>
       </header>
     </div>
